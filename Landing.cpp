@@ -286,8 +286,15 @@ int tri_vert[],int tri_nabe[],int *ltri,int *ledg,int *rtri,int *redg)
     
     return;
 }
-int main()
+int diaedg ( double x0,double y0, double x1, double y1, double x2, double y2, double x3, double y3)
 {
+ double ca,cb,dx10,dx12,dx30,dx32,dy10,dy12,dy30,dy32,s,tol,tola,tolb;
+ int value;
+    tol = 100.0*r8_epsilon();
+    
+}
+int main()
+{ 
    cout << "Hello World!" << endl;
    
    return 0;
