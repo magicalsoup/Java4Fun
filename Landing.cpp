@@ -1,3 +1,4 @@
+//line 473
 #include <iostream>
 #include<cstdlib>
 #include<cmath>
