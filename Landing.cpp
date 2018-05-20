@@ -1,4 +1,4 @@
-//c++ version, not finished, left off at line 400, admin's solution:
+//line 400
 #include <iostream>
 #include<cstdlib>
 #include<cmath>
