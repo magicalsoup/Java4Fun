@@ -1,4 +1,3 @@
-//line 400
 #include <iostream>
 #include<cstdlib>
 #include<cmath>
@@ -292,6 +291,52 @@ int diaedg ( double x0,double y0, double x1, double y1, double x2, double y2, do
  int value;
     tol = 100.0*r8_epsilon();
     
+    dx10 = x1-x0;
+    dy10 = y1- y0;
+    dx12 = x1- x2;
+    dy12 = y1 - y2;
+    dx30 = x3 - x0;
+    dy30 = y3 - y0;
+    dx32 = x3 - x2;
+    dy32 = y3 - y2;
+    tola = tol*max(fabs(dx10),
+    max(fabs(dy10),
+    max(fabs(dx30),fabs(dy30))));
+    
+    tolb = tol*max(fabs(dx12),
+               max(fabs(dy12),
+               max(fabs(dx32),fabs(dy32))));
+               
+    ca = dx10*dx30 + dy10*dy30;
+    cb = dx12*dx32 + dy12*dy32;
+    
+    if(tola<ca&&tolb<cb)
+    {
+        value = -1;
+    }
+    else if(ca<-tola&&cb<-tolb)
+    {
+        value = 1;
+    }
+    else
+    {
+        tola = max(tola,tolb);
+        s = (dx10*dy30-dx30*dy10)*cb+
+        (dx32&dy12-dx12*dy32)*ca;
+        if(tola<s)
+        {
+            value = -1;
+        }
+        else if(s<-tola)
+        {
+            value = 1;
+        }
+        else
+        {
+            value =0;
+        }
+    }
+    return value;   
 }
 int main()
 { 
